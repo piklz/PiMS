@@ -1,7 +1,9 @@
 #!/bin/bash
 
-#make sure you are in right directory
-# pushd ~/LMDS
+
+#DOCKER SETUP  bash menu
+#Lets check were in PiMS directory first
+# pushd ~/PiMS
 
 #Menu Display Name
 #[CONTAINER NAME]="MENU Text"
@@ -10,21 +12,26 @@ declare -A cont_array=(
 	[sonarr]="Sonarr"
 	[radarr]="Radarr"
 	[lidarr]="Lidarr"
-	[bazarr]="Bazarr"
 	[jackett]="Jackett"
-	[deluge]="Deluge - Torrent Client"
 	[qbittorrent]="qBittorrent - Torrent Client"
-	[transmission]="Transmission - Torrent Client"
-	[nzbget]="NZBGet - Usenet groups client"
-	[sabznbd]="SABznbd - Usenet groups client"
 	[jellyfin]="JellyFin - Media manager no license needed"
 	[plex]="Plex - Media manager"
-	[emby]="Emby - Media manager like Plex"
-	[embystat]="EmbyStat - Statistics for Emby"
-	[tvheadend]="TVheadend - TV streaming server"
-	[nginx]="Ngnix - Web Server"
 	[pihole]="Pi-Hole - Private DNS sinkhole"
-	[vpn]="VPN-Client - OpenVPN Gateway"
+	[wireguard]="general purpose VPN FAST- Wireguard"
+	[nextcloud]="Next-Cloud"
+	[homeassistant]="Home-Assistant"
+	[motioneye]="motioneye"
+	[mariadb]="mariadb for rapsberry homeass nextcloud etc"
+	#[emby]="Emby - Media manager like Plex"
+	#[embystat]="EmbyStat - Statistics for Emby"
+	#[bazarr]="Bazarr"	
+	#[deluge]="Deluge - Torrent Client"	
+	#[transmission]="Transmission - Torrent Client"
+	#[nzbget]="NZBGet - Usenet groups client"
+	#[sabznbd]="SABznbd - Usenet groups client"	
+	#[tvheadend]="TVheadend - TV streaming server"
+	#[nginx]="Ngnix - Web Server"
+	
 )
 
 # CONTAINER keys
@@ -33,21 +40,25 @@ declare -a armhf_keys=(
 	"sonarr"
 	"radarr"
 	"lidarr"
-	"bazarr"
 	"jackett"
-	"jellyfin"
-	"emby"
-	"embystat"
-	"plex"
-	"tvheadend"
-	"transmission"
-	"deluge"
 	"qbittorrent"
-	"nzbget"
-	"sabznbd"
+	"jellyfin"
+	"plex"
 	"pihole"
-	"nginx"
-	"vpn"
+	"wireguard"
+	"nextcloud"
+	"homeassistant"
+	"motioneye"
+	"mariadb"
+	#"bazarr"	
+	#"emby"
+	#"embystat"	
+	#"tvheadend"
+	#"transmission"
+	#"deluge"	
+	#"nzbget"
+	#"sabznbd"	
+	#"nginx"	
 )
 
 sys_arch=$(uname -m)
@@ -68,11 +79,11 @@ timezones() {
 docker_setfacl() {
 	[ -d ./services ] || mkdir ./services
 	[ -d ./volumes ] || mkdir ./volumes
-	[ -d ./LMDSBackups ] || mkdir ./LMDSBackups
+	[ -d ./PiMSBackups ] || mkdir ./PiMSBackups
 
 	#give current user rwx on the volumes and backups
 	[ $(getfacl ./volumes | grep -c "default:user:$USER") -eq 0 ] && sudo setfacl -Rdm u:$USER:rwx ./volumes
-	[ $(getfacl ./LMDSBackups | grep -c "default:user:$USER") -eq 0 ] && sudo setfacl -Rdm u:$USER:rwx ./LMDSBackups
+	[ $(getfacl ./PiMSBackups | grep -c "default:user:$USER") -eq 0 ] && sudo setfacl -Rdm u:$USER:rwx ./PiMSBackups
 }
 
 #future function add password in build phase
@@ -179,14 +190,14 @@ fi
 mainmenu_selection=$(whiptail --title "Main Menu" --menu --notags \
 	"" 20 78 12 -- \
 	"install" "Install Docker & Docker-compose" \
-	"build" "Build LMDS Stack" \
+	"build" "Build PiMS Stack" \
 	"commands" "Docker commands" \
 	"misc" "Miscellaneous commands" \
-	"update" "Update LMDS Stack" \
+	"update" "Update PiMS Stack" \
 	"update_compose" "Update Docker-compose" \
-	"backup" "Backup and Restore LMDS" \
+	"backup" "Backup and Restore PiMS" \
 	3>&1 1>&2 2>&3)
-# "backup" "Backup LMDS - (external scripts)" \
+# "backup" "Backup PiMS - (external scripts)" \
 
 
 case $mainmenu_selection in
@@ -304,7 +315,7 @@ case $mainmenu_selection in
 	docker_selection=$(
 		whiptail --title "Docker commands" --menu --notags \
 			"Shortcut to common docker commands" 20 78 12 -- \
-			"aliases" "Add LMDS_up and LMDS_down aliases" \
+			"aliases" "Add PiMS_up and PiMS_down aliases" \
 			"start" "Start stack" \
 			"restart" "Restart stack" \
 			"stop" "Stop stack" \
@@ -325,8 +336,8 @@ case $mainmenu_selection in
 	"prune_images") ./scripts/prune-images.sh ;;
 	"aliases")
 		touch ~/.bash_aliases
-		if [ $(grep -c 'LMDS' ~/.bash_aliases) -eq 0 ]; then
-			echo ". ~/LMDS/.bash_aliases" >>~/.bash_aliases
+		if [ $(grep -c 'PiMS' ~/.bash_aliases) -eq 0 ]; then
+			echo ". ~/PiMS/.bash_aliases" >>~/.bash_aliases
 			echo "added aliases"
 		else
 			echo "aliases already added"
@@ -352,11 +363,11 @@ case $mainmenu_selection in
 	#Backup menu ---------------------------------------------------------------------
 "backup")
 	backup_selection=$(
-		whiptail --title "Backup and Restore LMDS" --menu --notags \
+		whiptail --title "Backup and Restore PiMS" --menu --notags \
 			"While configuring rclone to work with Google Drive (option 12), make sure you give a folder name of (gdrive). Be carefull when you restore from backup. All containers will be stop and their settings overwritten with what is in your last backup file. All containers will start automatically after restore is done." 20 78 12 -- \
 			"rclone" "Install rclone and configure (gdrive) for backup" \
-			"rclone_backup" "Backup LMDS" \
-			"rclone_restore" "Restore LMDS" \
+			"rclone_backup" "Backup PiMS" \
+			"rclone_restore" "Restore PiMS" \
 			3>&1 1>&2 2>&3
 	)
 

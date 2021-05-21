@@ -1,8 +1,8 @@
 		#add enable file for rclone
-		[ -d ~/LMDS/LMDSBackups ] || sudo mkdir -p ~/LMDS/LMDSBackups/
-		sudo chown pi:pi -R ~/LMDS/LMDSBackups
+		[ -d ~/PiMS/PiMSBackups ] || sudo mkdir -p ~/PiMS/PiMSBackups/
+		sudo chown pi:pi -R ~/PiMS/PiMSBackups
 
-    if ls ~/LMDS/ | grep -w 'docker-compose.yml' >> /dev/null ; then
+    if ls ~/PiMS/ | grep -w 'docker-compose.yml' >> /dev/null ; then
 
 		#create the list of files to backup
         echo "./docker-compose.yml" >list.txt
@@ -10,30 +10,30 @@
         echo "./volumes/" >>list.txt
 
         #setup variables
-        logfile=./LMDSBackups/log_local.txt
-        backupfile="LMDSbackup-$(date +"%Y-%m-%d_%H-%M").tar.gz"
+        logfile=./PiMSBackups/log_local.txt
+        backupfile="PiMSbackup-$(date +"%Y-%m-%d_%H-%M").tar.gz"
 
         #compress the backups folders to archive
         echo -e "\e[32m=====================================================================================\e[0m"
         echo -e "\e[36;1m    Creating backup file ... \e[0m"
                         sudo tar -czf \
-                        ./LMDSBackups/$backupfile \
+                        ./PiMSBackups/$backupfile \
                         -T list.txt
                         rm list.txt
 
         #set permission for backup files
-        sudo chown pi:pi ./LMDSBackups/LMDS*
+        sudo chown pi:pi ./PiMSBackups/PiMS*
 
         #create local logfile and append the latest backup file to it
-        echo -e "\e[36;1m    Backup file created \e[32;1m $(ls -t1 ~/LMDS/LMDSBackups/LMDS* | head -1 | grep -o 'LMDSbackup.*')\e[0m"
+        echo -e "\e[36;1m    Backup file created \e[32;1m $(ls -t1 ~/PiMS/PiMSBackups/PiMS* | head -1 | grep -o 'PiMSbackup.*')\e[0m"
         sudo touch $logfile
         sudo chown pi:pi $logfile
         echo $backupfile >>$logfile
 
         #remove older local backup files
         #to change backups retained,  change below +5 to whatever you want (days retained +1)
-        ls -t1 ./LMDSBackups/LMDS* | tail -n +5 | sudo xargs rm -f
-        echo -e "\e[36;1m    Backup files are saved in \e[34;1m~/LMDS/LMDSBackups/\e[0m"
+        ls -t1 ./PiMSBackups/PiMS* | tail -n +5 | sudo xargs rm -f
+        echo -e "\e[36;1m    Backup files are saved in \e[34;1m~/PiMS/PiMSBackups/\e[0m"
         echo -e "\e[36;1m    Only recent 4 backup files are kept\e[0m"
 
 		# check if rclone is installed and gdrive: configured 
@@ -41,7 +41,7 @@
 
         #sync local backups to gdrive (older gdrive copies will be deleted)
 		echo -e "\e[36;1m    Syncing to Google Drive ... \e[0m"
-        rclone sync -P ./LMDSBackups --include "/LMDSbackup*"  gdrive:/LMDSBackups/ > ./LMDSBackups/rclone_sync_log
+        rclone sync -P ./PiMSBackups --include "/PiMSbackup*"  gdrive:/PiMSBackups/ > ./PiMSBackups/rclone_sync_log
         echo -e "\e[36;1m    Sync with Google Drive \e[32;1mdone\e[0m"
         echo -e "\e[32m=====================================================================================\e[0m"
 	else
