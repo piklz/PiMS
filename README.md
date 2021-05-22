@@ -1,4 +1,4 @@
-# LMDS Stack
+# PiMS Stack
 
 <b>Linux Media Delivery System Stack based on Docker for Raspberry Pi</b>
 
