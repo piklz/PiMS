@@ -27,7 +27,7 @@ This repository will allow you to dynamically choose needed containers and autom
   <li> EmbyStat - Statistics for Emby : 6555</li>
   <li> TVheadend - TV streaming server : 9981 </li>
   #<li> Ngnix - Web Server - for future use clear instance for now: 80</li>
-  <li> Pi-Hole - Private DNS sinkhole : 8089 <b>WebPass: <i>greenfrog</i></b></li>
+  <li> Pi-Hole - Private DNS sinkhole : 8089 <b>WebPass: <i>pihole</i></b></li>
   <li> rpi-monitor - raspberrypi:8888 <b></li>
   <li> home-aassistant - raspberrypi:8123 <b></li>
   </ul>
