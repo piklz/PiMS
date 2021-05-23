@@ -1,6 +1,6 @@
 # PiMS Stack
 
-<b>Linux Media Delivery System Stack based on Docker for Raspberry Pi</b>
+<b>PiMediaSys Stack based on Docker via portainer control  for Raspberry Pi</b>
 
 ## About
 
