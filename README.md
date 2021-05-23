@@ -36,10 +36,10 @@ This repository will allow you to dynamically choose needed containers and autom
 
 
 ### Raspberry Pi PiMS Server Docker Edition
-YouTube: https://youtu.be/oLxsSQIqOMw
 
-### GreenFrog Small Blog
-Blog link: http://greenfrognest.com/PiMSondocker.php
+
+### piklz  Blog wiki
+
 
 ## How to Use it?
 <b>Before you start using PiMS, set your Raspberry Pi IP address to be static, it will make some things easier later on.
@@ -51,7 +51,7 @@ Static IP address is not absolutely necessary just to try the project and find o
 - Clone the repository with:
 <pre><code>git clone https://github.com/piklz/PiMS.git ~/PiMS</code></pre>
 
-<i>Do not change name of the folder on your local system it should stay as is for the script to work properly</i>
+<i>Do not change name of the folder on your local system it should stay as is for the scripts to work properly</i>
 
 - Enter the directory and run:
 
