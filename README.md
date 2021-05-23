@@ -4,31 +4,32 @@
 
 ## About
 
-Project goal is to simplify LMDS deployment and maintenance on Raspberry Pi.
+Project goal is to simplify PiMS deployment and maintenance on Raspberry Pi.
 This repository will allow you to dynamically choose needed containers and automate their deployment.
 
-<b>What is currently a part of the LMDS Stack:</b>
+<b>What is currently a part of the PiMS Stack:</b>
 
 <ul>
   <li>Portainer - GUI Docker Manager :9000</li>
   <li> Sonarr : 8989</li>
   <li> Radarr : 7878</li>
   <li> Lidarr : 8686</li>
-  #<li> Bazarr : 6767</li>
+  <li> Bazarr : 6767</li>
   <li> Jackett : 9117</li>
- # <li> Deluge - Torrent Client : 8112</li>
+  <li> Deluge - Torrent Client : 8112</li>
   <li> qBittorrent - Torrent Client : 15080</li>
-  #<li> Transmission - Torrent Client : 9091</li>
-  #<li> NZBGet - Usenet groups client : 6789</li>
- # <li> SABnzbd - Usenet groups client : 8080</li>
+  <li> Transmission - Torrent Client : 9091</li>
+  <li> NZBGet - Usenet groups client : 6789</li>
+  <li> SABnzbd - Usenet groups client : 8080</li>
   <li> JellyFin - Media manager OpenSource : <b>8096</b></li>
-  #<li> Emby - Media manager like Plex : <b>8096</b></li>
+  <li> Emby - Media manager like Plex : <b>8096</b></li>
   <li> Plex - Media manager : 32400/web</li>
-  #<li> EmbyStat - Statistics for Emby : 6555</li>
-  #<li> TVheadend - TV streaming server : 9981 </li>
+  <li> EmbyStat - Statistics for Emby : 6555</li>
+  <li> TVheadend - TV streaming server : 9981 </li>
   #<li> Ngnix - Web Server - for future use clear instance for now: 80</li>
   <li> Pi-Hole - Private DNS sinkhole : 8089 <b>WebPass: <i>greenfrog</i></b></li>
   <li> rpi-monitor - raspberrypi:8888 <b></li>
+  <li> home-aassistant - raspberrypi:8123 <b></li>
   </ul>
 <br>
 <i>Numbers after ":" identify a port that particular container will respond on, i.e. Portainer default port is :9000, point your browser it to your server IP adding :9000 at the end i.e. http://192.168.100.100:9000 you will see Portainer login page.</i>
@@ -48,7 +49,7 @@ Static IP address is not absolutely necessary just to try the project and find o
 <pre><code>sudo apt-get install git</code></pre>
 
 - Clone the repository with:
-<pre><code>git clone https://github.com/GreenFrogSB/LMDS.git ~/LMDS</code></pre>
+<pre><code>git clone https://github.com/piklz/PiMS.git ~/PiMS</code></pre>
 
 <i>Do not change name of the folder on your local system it should stay as is for the script to work properly</i>
 
