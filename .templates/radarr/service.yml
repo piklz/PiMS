@@ -8,8 +8,8 @@
       - UMASK=022 #optional
     volumes:
       - ./volumes/radarr/config:/config
-      - ./media/usb_ELEMENT2TB/DOWNLOADS/movies:/movies
-      - ./media/usb_ELEMENT2TB/DOWNLOADS:/downloads
+      - /media/usb_ELEMENT2TB/DOWNLOADS/movies:/movies
+      - /media/usb_ELEMENT2TB/DOWNLOADS:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
