@@ -2,20 +2,26 @@
 # homeassistant yml
 # ==================================================================================================================================
   homeassistant:
-    image: "homeassistant/raspberrypi4-homeassistant:stable"
+    image: homeassistant/raspberrypi4-homeassistant:stable
     container_name: homeassistant
-    restart: unless-stopped
+    restart: always
+    net: host
+    privileged: true
     network_mode: host
 #    cap_add:
 #      - NET_ADMIN
 #      - NET_RAW
+    devices:
+    - '/dev/ttyUSB0'
+    - '/dev/ttyACM0'
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+      - ./volumes/homeassistant/conf:/config
       - ./volumes/homeassistant/addons:/homeassistant/addons
       - ./volumes/homeassistant/conf:/homeassistant/conf
       - ./volumes/homeassistant/userdata:/homeassistant/userdata
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
+      - TZ='Europe/London'
