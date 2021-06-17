@@ -5,7 +5,6 @@
     image: homeassistant/raspberrypi4-homeassistant:stable
     container_name: homeassistant
     restart: always
-    net: host
     privileged: true
     network_mode: host
 #    cap_add:
