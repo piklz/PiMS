@@ -30,6 +30,8 @@ This repository will allow you to dynamically choose needed containers and autom
   <li> Pi-Hole - Private DNS sinkhole : 8089 <b>WebPass: <i>pihole</i></b></li>
   <li> rpi-monitor - raspberrypi:8888 <b></li>
   <li> home-aassistant - raspberrypi:8123 <b></li>
+  <li> prowlarr - raspberrypi:9696 <b></li>  
+  <li> ombi - raspberrypi:3579 <b></li>
   </ul>
 <br>
 <i>Numbers after ":" identify a port that particular container will respond on, i.e. Portainer default port is :9000, point your browser it to your server IP adding :9000 at the end i.e. http://192.168.100.100:9000 you will see Portainer login page.</i>
