@@ -8,7 +8,7 @@
       - UMASK_SET=022 #optional
     volumes:
       - ./volumes/lidarr/config:/config
-      - ./media/music:/music
-      - ./downloads:/downloads
+      - /media/usb_ELEMENT2TB/DOWNLOADS/music:/music
+      - /media/usb_ELEMENT2TB/DOWNLOADS:/downloads
     ports:
       - 8686:8686
