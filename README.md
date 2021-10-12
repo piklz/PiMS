@@ -2,6 +2,8 @@
 
 <b>PiMediaSys Stack based on Docker via portainer control  for Raspberry Pi</b>
 
+<b>Update : Oct 2021 |  Added ombi(plex) & prowlarr( alt jacket indexer) </b>
+
 ## About
 
 Project goal is to simplify PiMS deployment and maintenance on Raspberry Pi.
