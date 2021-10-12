@@ -7,7 +7,7 @@
       - TZ=UTC
 #      - BASE_URL=/ombi #optional
     volumes:
-      - .volumes/ombi/config:/config
+      - ./volumes/ombi/config:/config
     ports:
       - 3579:3579
     restart: unless-stopped
