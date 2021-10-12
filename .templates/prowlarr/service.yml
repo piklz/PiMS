@@ -1,4 +1,4 @@
-prowlarr:
+  prowlarr:
     image: ghcr.io/linuxserver/prowlarr:develop
     container_name: prowlarr
     environment:
@@ -10,3 +10,4 @@ prowlarr:
     ports:
       - 9696:9696
     restart: unless-stopped
+    

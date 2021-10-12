@@ -1,5 +1,5 @@
-ombi:
-    image: ghcr.io/linuxserver/ombi
+  ombi:
+    image: ghcr.io/linuxserver/ombi:development
     container_name: ombi
     environment:
       - PUID=1000
@@ -11,3 +11,4 @@ ombi:
     ports:
       - 3579:3579
     restart: unless-stopped
+    
