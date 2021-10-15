@@ -2,7 +2,8 @@
 
 <b>PiMediaSys Stack based on Docker via portainer control  for Raspberry Pi</b>
 
-<b>Update : Oct 2021 |  Added tautulli (plex stats) + ombi (plex items requester) & prowlarr( alt jacket indexer) </b>
+
+<b>Update : Oct 2021 |  Added overseerr (media requester) + tautulli (plex stats) + ombi (plex items requester) & prowlarr( alt jacket indexer) </b>
 
 ## About
 
