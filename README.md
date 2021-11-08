@@ -2,7 +2,8 @@
 
 <b>PiMediaSys Stack based on Docker via portainer control  for Raspberry Pi</b>
 
-https://healthchecks.io/badge/afa56e79-0ed7-4814-8c65-e7cb82/kU0XfO-K/portainerBKUP.svg
+<b>![Screenshot](https://healthchecks.io/badge/afa56e79-0ed7-4814-8c65-e7cb82/kU0XfO-K/portainerBKUP.svg)
+
 
 <b>Update : Oct 2021 |  Added overseerr (media requester) + tautulli (plex stats) + ombi (plex items requester) & prowlarr( alt jacket indexer) </b>
 
