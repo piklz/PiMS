@@ -7,13 +7,24 @@
       - PGID=1000
       - VERSION=docker
       - UMASK_SET=022 #optional
+      - TZ='Europe/London'
       # - PLEX_CLAIM= #optional
     ports:
-      -p ["32401:32401"]
+      - '32401:32401'
+      - '3005:3005'
+      - '8324:8324'
+      - '32469:32469'
+      - '1900:1900/udp'
+      - '32410:32410/udp'
+      - '32412:32412/udp'
+      - '32413:32413/udp'
+      - '32414:32414/udp'
     volumes:
-      - ./volumes/plex/library:/config
+      - ./volumes/plex:/config
       #- ./media/tvshows:/tv
       #- ./media/movies:/movies
+      - /media/usb_ELEMENT2TB/DOWNLOADS/data:/data
+      - /media/usb_ELEMENT2TB/DOWNLOADS/transcode:/transcode
       - /media/usb_ELEMENT2TB/DOWNLOADS/tvshows:/data/tvshows      
       - /media/usb_ELEMENT2TB/DOWNLOADS/movies:/data/movies
       - /media/usb_ELEMENT2TB/DOWNLOADS/music:/data/music
