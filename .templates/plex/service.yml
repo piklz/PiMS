@@ -1,6 +1,6 @@
   plex:
-    #image: ghcr.io/linuxserver/plex:latest
-    image: ghcr.io/linuxserver/plex:bionic
+    image: ghcr.io/linuxserver/plex:latest
+    #image: ghcr.io/linuxserver/plex:bionic
     container_name: plex
     #network_mode: host
     environment:
@@ -9,7 +9,7 @@
       - VERSION=docker
       - UMASK_SET=022 #optional
       - TZ='Europe/London'
-      - PLEX_CLAIM=claim-z13k1yzcKEsqGa2U5-hd
+      #- PLEX_CLAIM= optional
     ports:
       - '32400:32400'
       - '3005:3005'
