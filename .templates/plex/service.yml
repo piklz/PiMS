@@ -8,8 +8,8 @@
       - VERSION=docker
       - UMASK_SET=022 #optional
       # - PLEX_CLAIM= #optional
-    ports: 
-      -p 32401:32401
+    ports:
+      -p "32401:32401"
     volumes:
       - ./volumes/plex/library:/config
       #- ./media/tvshows:/tv
