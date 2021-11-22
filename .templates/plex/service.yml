@@ -9,7 +9,7 @@
       - VERSION=docker
       - UMASK_SET=022 #optional
       - TZ='Europe/London'
-      # - PLEX_CLAIM= #optional
+      - PLEX_CLAIM=claim-z13k1yzcKEsqGa2U5-hd
     ports:
       - '32400:32400'
       - '3005:3005'
