@@ -1,5 +1,5 @@
   plex:
-    image: ghcr.io/linuxserver/plex:bionic
+    image: ghcr.io/linuxserver/plex:latest
     container_name: plex
     network_mode: host
     environment:
@@ -8,8 +8,14 @@
       - VERSION=docker
       - UMASK_SET=022 #optional
       # - PLEX_CLAIM= #optional
+    ports: 
+      -p 32401:32401
     volumes:
       - ./volumes/plex/library:/config
-      - ./media/tvshows:/tv
-      - ./media/movies:/movies
+      #- ./media/tvshows:/tv
+      #- ./media/movies:/movies
+      - /media/usb_ELEMENT2TB/DOWNLOADS/tvshows:/data/tvshows      
+      - /media/usb_ELEMENT2TB/DOWNLOADS/movies:/data/movies
+      - /media/usb_ELEMENT2TB/DOWNLOADS/music:/data/music
+      - /opt/vc/lib:/opt/vc/lib #optional
     restart: unless-stopped
