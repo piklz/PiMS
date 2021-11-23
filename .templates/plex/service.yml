@@ -10,7 +10,7 @@
       - UMASK_SET=022 #optional
       - TZ='Europe/London'
       #- PLEX_CLAIM= optional to claim a new server add here clain-++++++++++++
-      ADVERTISE_IP='http://192.168.1.30:32400/'
+      - ADVERTISE_IP='http://192.168.1.30:32400/'
       
     ports:
       - '32400:32400'
