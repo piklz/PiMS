@@ -31,5 +31,7 @@
       - /media/USB_PLEX_14TB/TV:/data/tvshows      
       - /media/USB_PLEX_14TB/MOVIES:/data/movies
       - /media/USB_PLEX_14TB/MUSIC:/data/music
+      - /media/USB_PLEX_14TB/AUDIOBOOKS:/data/audiobooks
+      - /media/USB_PLEX_14TB/FAMILYTV:/data/familytv
       - /opt/vc/lib:/opt/vc/lib #optional
     restart: unless-stopped
