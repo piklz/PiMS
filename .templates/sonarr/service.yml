@@ -8,8 +8,8 @@
       - UMASK_SET=022 #optional
     volumes:
       - ./volumes/sonarr/data:/config
-      - /media/usb_ELEMENT2TB/DOWNLOADS/tvshows:/tv
-      - /media/usb_ELEMENT2TB/DOWNLOADS:/downloads
+      - /media/USB_PLEX_14TB/TV:/tv
+      - /media/USB_PLEX_14TB/DOWNLOADS:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped

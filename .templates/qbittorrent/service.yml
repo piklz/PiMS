@@ -8,7 +8,7 @@
       - WEBUI_PORT=15080
     volumes:
       - ./volumes/qbittorrent/config:/config
-      - /media/usb_ELEMENT2TB/DOWNLOADS:/downloads
+      - /media/USB_PLEX_14TB/DOWNLOADS:/downloads
     ports:
       - 6881:6881
       - 6881:6881/udp

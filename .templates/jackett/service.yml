@@ -9,7 +9,7 @@
       # - RUN_OPTS=<run options here> #optional
     volumes:
       - ./volumes/jackett/config:/config
-      - /media/usb_ELEMENT2TB/DOWNLOADS:/downloads
+      - /media/USB_PLEX_14TB/DOWNLOADS:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped
