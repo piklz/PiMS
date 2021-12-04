@@ -17,7 +17,7 @@
       - '3005:3005'
       - '8324:8324'
       - '32469:32469'
-      #- '1900:1900/udp'
+      - '1900:1900/udp'
       - '32410:32410/udp'
       - '32412:32412/udp'
       - '32413:32413/udp'
@@ -28,8 +28,8 @@
       #- ./media/movies:/movies
       - /media/USB_PLEX_14TB/data:/data
       - /media/USB_PLEX_14TB/DOWNLOADS/transcode:/transcode
-      - /media/USB_PLEX_14TB/tvshows:/data/tvshows      
-      - /media/USB_PLEX_14TB/movies:/data/movies
-      - /media/USB_PLEX_14TB/music:/data/music
+      - /media/USB_PLEX_14TB/TV:/data/tvshows      
+      - /media/USB_PLEX_14TB/MOVIES:/data/movies
+      - /media/USB_PLEX_14TB/MUSIC:/data/music
       - /opt/vc/lib:/opt/vc/lib #optional
     restart: unless-stopped
