@@ -27,7 +27,7 @@
       #- ./media/tvshows:/tv
       #- ./media/movies:/movies
       - /media/USB_PLEX_14TB/data:/data
-      - /media/USB_PLEX_14TB/DOWNLOADS/transcode:/transcode
+      - /media/USB_PLEX_14TB/DOWNLOADS/transcode:/data/transcode
       - /media/USB_PLEX_14TB/TV:/data/tvshows      
       - /media/USB_PLEX_14TB/MOVIES:/data/movies
       - /media/USB_PLEX_14TB/MUSIC:/data/music
